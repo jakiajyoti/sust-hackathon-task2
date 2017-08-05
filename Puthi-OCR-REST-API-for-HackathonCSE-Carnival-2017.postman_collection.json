@@ -1,0 +1,62 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Puthi OCR REST API for Hackathon@CSE-Carnival-2017",
+		"_postman_id": "04ec4d4e-605f-86f6-31f0-f2a19e42b8c8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Image Upload",
+			"request": {
+				"url": "113.11.120.208/upload",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sampleFile",
+							"description": "",
+							"type": "file",
+							"value": ""
+						}
+					]
+				},
+				"description": "Endpoint: http://puthi-ocr.com/upload\n\nDescription: API endpoint for uploading image file. Upload images using this endpoint.\n\nRequest type: POST\nAuthorization: NoAuth\nHeaders: null\nBody: form-data\n\n\tKey: \"sampleFile\"\n\tValue: the image file itself\n\t\n\t\nOn successful upload you will get the corresponding filename (unique for every upload) to use for further OCR operation of the file using the other API endpoints."
+			},
+			"response": []
+		},
+		{
+			"name": "OCR Operation",
+			"request": {
+				"url": {
+					"raw": "http://puthi-ocr.com/do_ocr?src=-KqSQMdW5BQmWwUO6gAy.jpg",
+					"protocol": "http",
+					"host": [
+						"puthi-ocr",
+						"com"
+					],
+					"path": [
+						"do_ocr"
+					],
+					"query": [
+						{
+							"key": "src",
+							"value": "-KqSQMdW5BQmWwUO6gAy.jpg",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Endpoint: http://puthi-ocr.com/do_ocr\n\nDescription: API endpoint for OCR operation. Build a query string using the unique filename (received in response of uploading the image).\n\nRequest Type: GET\n\nSample query string: http://puthi-ocr.com/do_ocr?src=-KqSQMdW5BQmWwUO6gAy.jpg\n\nHere, \"-KqSQMdW5BQmWwUO6gAy.jpg\" is the unique file name that you have got in response after uploading the image file."
+			},
+			"response": []
+		}
+	]
+}
